@@ -135,7 +135,7 @@
             min-width: 115px !important;
             text-align: right !important;
             font-weight: 800;
-            font-size: 16px;
+            font-size: 17px;
             color: #0f172a;
             white-space: nowrap;
         }
@@ -180,7 +180,7 @@
             word-wrap: break-word;
         }
 
-        /* CALCULATOR TOP BLUE CARD PANEL (CLEAN) */
+        /* CALCULATOR TOP BLUE CARD PANEL */
         .calc-top-card {
             background: #1e3a8a;
             color: #ffffff;
@@ -319,7 +319,7 @@
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="1000" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-1000">रु. 0</div>
+                        <div class="denom-total" id="total-1000">0</div>
                     </div>
 
                     <!-- 500 -->
@@ -328,7 +328,7 @@
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="500" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-500">रु. 0</div>
+                        <div class="denom-total" id="total-500">0</div>
                     </div>
 
                     <!-- 100 -->
@@ -337,7 +337,7 @@
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="100" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-100">रु. 0</div>
+                        <div class="denom-total" id="total-100">0</div>
                     </div>
 
                     <!-- 50 -->
@@ -346,7 +346,7 @@
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="50" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-50">रु. 0</div>
+                        <div class="denom-total" id="total-50">0</div>
                     </div>
 
                     <!-- 20 -->
@@ -355,7 +355,7 @@
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="20" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-20">रु. 0</div>
+                        <div class="denom-total" id="total-20">0</div>
                     </div>
 
                     <!-- 10 -->
@@ -364,7 +364,7 @@
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="10" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-10">रु. 0</div>
+                        <div class="denom-total" id="total-10">0</div>
                     </div>
 
                     <!-- 5 -->
@@ -373,7 +373,7 @@
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="5" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-5">रु. 0</div>
+                        <div class="denom-total" id="total-5">0</div>
                     </div>
 
                     <!-- 2 -->
@@ -382,7 +382,7 @@
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="2" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-2">रु. 0</div>
+                        <div class="denom-total" id="total-2">0</div>
                     </div>
 
                     <!-- 1 -->
@@ -391,7 +391,7 @@
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="1" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-1">रु. 0</div>
+                        <div class="denom-total" id="total-1">0</div>
                     </div>
 
                     <!-- OTHER / EXTRA AMOUNT -->
@@ -400,7 +400,7 @@
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" id="otherAmount" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total text-primary" id="total-other">रु. 0</div>
+                        <div class="denom-total text-primary" id="total-other">0</div>
                     </div>
 
                 </div>
@@ -413,7 +413,7 @@
                         <div class="total-in-words" id="totalInWordsText">(Zero Rupees Only)</div>
                     </div>
 
-                    <div class="text-center">
+                    <div class="text-center mt-2">
                         <button type="button" class="btn btn-outline-danger btn-sm" onclick="resetDenomination()">
                             <i class="bi bi-arrow-counterclockwise"></i> Reset All (खाली गर्नुहोस्)
                         </button>
@@ -425,7 +425,7 @@
         <!-- TAB 2: STANDARD CALCULATOR -->
         <div class="tab-pane fade" id="standard-pane" role="tabpanel">
             
-            <!-- CALCULATOR TOP TOTAL CARD PANEL (CLEAN: TOTAL + NUMBERS ONLY) -->
+            <!-- CALCULATOR TOP TOTAL CARD PANEL -->
             <div class="calc-top-card">
                 <span>TOTAL</span>
                 <h3 id="calcTotalCardText">0</h3>
@@ -513,12 +513,12 @@ function calculateDenomination() {
 
         grandTotal += subtotal;
 
-        document.getElementById(`total-${noteValue}`).textContent = 'रु. ' + subtotal.toLocaleString('en-US');
+        document.getElementById(`total-${noteValue}`).textContent = subtotal.toLocaleString('en-US');
     });
 
     const otherVal = parseFloat(document.getElementById('otherAmount').value) || 0;
     grandTotal += otherVal;
-    document.getElementById('total-other').textContent = 'रु. ' + otherVal.toLocaleString('en-US');
+    document.getElementById('total-other').textContent = otherVal.toLocaleString('en-US');
 
     document.getElementById('grandTotalText').textContent = 'रु. ' + grandTotal.toLocaleString('en-US');
     document.getElementById('totalInWordsText').textContent = numberToWords(grandTotal);
