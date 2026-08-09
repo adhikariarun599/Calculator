@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denomination & Standard Calculator - Arun Adhikari</title>
+    <title>Financial Calculator - Arun Adhikari</title>
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,21 +16,46 @@
         }
 
         body {
-            background-color: #f4f6f9;
+            background-color: var(--bs-body-bg);
             font-family: Arial, Helvetica, sans-serif;
-            color: #333;
+            color: var(--bs-body-color);
             min-height: 100vh;
             padding: 8px 4px;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .calc-container {
-            max-width: 580px;
+            max-width: 600px;
             margin: 5px auto;
-            background: #ffffff;
+            background: var(--bs-card-bg, #ffffff);
             border-radius: 16px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
-            padding: 14px;
-            border: 1px solid #e2e8f0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 16px;
+            border: 1px solid var(--bs-border-color, #e2e8f0);
+            position: relative;
+        }
+
+        /* DARK MODE TOGGLE BUTTON */
+        .theme-toggle-btn {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            border: 1px solid var(--bs-border-color);
+            background: transparent;
+            color: var(--bs-body-color);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle-btn:hover {
+            background: rgba(0, 0, 0, 0.05);
         }
 
         /* HEADER & PROFILE */
@@ -52,35 +77,48 @@
         .header-profile h2 {
             font-size: 20px;
             font-weight: 700;
-            color: #1e3a8a;
+            color: #3b82f6;
             margin: 0;
         }
 
         .header-profile p {
-            color: #64748b;
+            color: var(--bs-secondary-color, #64748b);
             font-size: 13px;
             margin-top: 2px;
+            margin-bottom: 4px;
+        }
+
+        .nepali-date-badge {
+            display: inline-block;
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         /* TABS STYLING */
         .nav-tabs {
-            border-bottom: 2px solid #e2e8f0;
+            border-bottom: 2px solid var(--bs-border-color, #e2e8f0);
             margin-bottom: 12px;
             justify-content: center;
+            gap: 4px;
         }
 
         .nav-tabs .nav-link {
             border: none;
-            color: #64748b;
+            color: var(--bs-secondary-color, #64748b);
             font-weight: 600;
-            font-size: 15px;
-            padding: 6px 16px;
+            font-size: 14px;
+            padding: 6px 10px;
             border-radius: 8px 8px 0 0;
         }
 
         .nav-tabs .nav-link.active {
-            color: #1e3a8a;
-            border-bottom: 3px solid #1e3a8a;
+            color: #3b82f6;
+            border-bottom: 3px solid #3b82f6;
             background: transparent;
         }
 
@@ -95,8 +133,8 @@
             flex-wrap: nowrap !important;
             align-items: center !important;
             justify-content: space-between !important;
-            padding: 3px 0 !important;
-            border-bottom: 1px solid #f1f5f9;
+            padding: 4px 0 !important;
+            border-bottom: 1px solid var(--bs-border-color, #f1f5f9);
             gap: 6px;
         }
 
@@ -105,13 +143,13 @@
             min-width: 85px !important;
             font-weight: 800;
             font-size: 17px;
-            color: #0f172a;
+            color: var(--bs-body-color, #0f172a);
             white-space: nowrap;
         }
 
         .denom-label span {
             font-size: 14px;
-            color: #64748b;
+            color: var(--bs-secondary-color, #64748b);
             font-weight: 600;
         }
 
@@ -127,7 +165,6 @@
             font-size: 17px !important;
             font-weight: 700 !important;
             text-align: center !important;
-            border: 1px solid #cbd5e1 !important;
         }
 
         .denom-total {
@@ -136,14 +173,14 @@
             text-align: right !important;
             font-weight: 800;
             font-size: 17px;
-            color: #0f172a;
+            color: var(--bs-body-color, #0f172a);
             white-space: nowrap;
         }
 
         /* SUMMARY BOX & GRAND TOTAL CARD PANEL */
         .summary-card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: var(--bs-tertiary-bg, #f8fafc);
+            border: 1px solid var(--bs-border-color, #e2e8f0);
             border-radius: 12px;
             padding: 12px;
             margin-top: 10px;
@@ -271,6 +308,94 @@
             grid-column: span 2;
         }
 
+        /* EMI CALCULATOR STYLING */
+        .emi-result-card {
+            background: #1e3a8a;
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 14px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .emi-result-card span {
+            font-size: 12px;
+            color: #93c5fd;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .emi-result-card h2 {
+            font-size: 30px;
+            font-weight: 800;
+            margin: 4px 0 0;
+            color: #ffffff;
+        }
+
+        .emi-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .emi-detail-item {
+            background: var(--bs-tertiary-bg, #f8fafc);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--bs-border-color, #e2e8f0);
+            text-align: center;
+        }
+
+        .emi-detail-item label {
+            font-size: 11px;
+            color: var(--bs-secondary-color, #64748b);
+            display: block;
+            margin-bottom: 2px;
+            font-weight: 600;
+        }
+
+        .emi-detail-item strong {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--bs-body-color, #0f172a);
+        }
+
+        .schedule-container {
+            max-height: 320px;
+            overflow-y: auto;
+            border: 1px solid var(--bs-border-color, #e2e8f0);
+            border-radius: 8px;
+        }
+
+        .schedule-table {
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+
+        .schedule-table th {
+            position: sticky;
+            top: 0;
+            background-color: var(--bs-tertiary-bg, #f8fafc);
+            z-index: 1;
+        }
+
+        /* FOOTER STYLING */
+        .footer-copyright {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--bs-border-color, #e2e8f0);
+            text-align: center;
+            font-size: 12px;
+            color: var(--bs-secondary-color, #64748b);
+        }
+
+        .footer-copyright a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
         @media (max-width: 400px) {
             .denom-label { width: 70px !important; min-width: 70px !important; font-size: 15px; }
             .denom-total { width: 100px !important; min-width: 100px !important; font-size: 15px; }
@@ -278,6 +403,8 @@
             .denom-input { height: 35px !important; font-size: 15px !important; }
             .calc-btn { height: 46px; font-size: 18px; }
             .calc-main-total { font-size: 28px; }
+            .nav-tabs .nav-link { font-size: 12px; padding: 6px 6px; }
+            .schedule-table { font-size: 10px; }
         }
     </style>
 </head>
@@ -285,18 +412,31 @@
 
 <div class="calc-container">
 
+    <!-- DARK / LIGHT TOGGLE BUTTON -->
+    <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+    </button>
+
     <!-- HEADER / PROFILE -->
     <div class="header-profile">
         <img src="photo.png" alt="Arun Adhikari" class="profile-img" onerror="this.src='https://via.placeholder.com/75?text=Arun'">
         <h2>Arun Adhikari</h2>
-        <p>Financial Denomination & Standard Calculator</p>
+        <p>Financial Denomination, Standard & EMI Calculator</p>
+        <div class="nepali-date-badge" id="nepaliDateText">
+            <i class="bi bi-calendar3"></i> Loading Date...
+        </div>
     </div>
 
-    <!-- DOUBLE TAB NAVIGATION -->
+    <!-- TRIPLE TAB NAVIGATION -->
     <ul class="nav nav-tabs" id="calcTabs" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="denom-tab" data-bs-toggle="tab" data-bs-target="#denom-pane" type="button" role="tab">
                 <i class="bi bi-cash-stack"></i> Denomination
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="emi-tab" data-bs-toggle="tab" data-bs-target="#emi-pane" type="button" role="tab">
+                <i class="bi bi-bank"></i> EMI Calculator
             </button>
         </li>
         <li class="nav-item" role="presentation">
@@ -395,7 +535,7 @@
                     </div>
 
                     <!-- OTHER / EXTRA AMOUNT -->
-                    <div class="denom-row" style="background: #f8fafc; border-top: 1.5px dashed #cbd5e1; margin-top: 3px;">
+                    <div class="denom-row" style="background: var(--bs-tertiary-bg, #f8fafc); border-top: 1.5px dashed var(--bs-border-color, #cbd5e1); margin-top: 3px;">
                         <div class="denom-label text-primary" style="font-size: 15px;">Other <span>(+)</span></div>
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" id="otherAmount" min="0" placeholder="0" oninput="calculateDenomination()">
@@ -422,7 +562,108 @@
             </form>
         </div>
 
-        <!-- TAB 2: STANDARD CALCULATOR -->
+        <!-- TAB 2: EMI CALCULATOR -->
+        <div class="tab-pane fade" id="emi-pane" role="tabpanel">
+            <div class="emi-result-card">
+                <span>Monthly EMI Amount</span>
+                <h2 id="emiMonthlyResult">रु. 0</h2>
+            </div>
+
+            <div class="card p-3 mb-3 border-0 shadow-sm" style="background: var(--bs-tertiary-bg, #f8fafc);">
+                
+                <!-- INTEREST METHOD SELECTION -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-secondary" style="font-size: 13px;">Interest Calculation Method (व्याज विधि):</label>
+                    <div class="d-flex gap-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="emiMethod" id="methodReducing" value="reducing" checked onchange="calculateEMI()">
+                            <label class="form-check-input-label fw-semibold" for="methodReducing" style="font-size: 14px;">
+                                घट्दो क्रम (Reducing Balance)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="emiMethod" id="methodFlat" value="flat" onchange="calculateEMI()">
+                            <label class="form-check-input-label fw-semibold" for="methodFlat" style="font-size: 14px;">
+                                फिक्स / फल्याट (Flat Rate)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LOAN AMOUNT -->
+                <div class="mb-2">
+                    <label class="form-label fw-bold mb-1" style="font-size: 13px;">Loan Amount (ऋण रकम):</label>
+                    <input type="number" class="form-control fw-bold" id="emiAmount" placeholder="e.g. 500000" oninput="calculateEMI()">
+                </div>
+
+                <!-- INTEREST RATE -->
+                <div class="mb-2">
+                    <label class="form-label fw-bold mb-1" style="font-size: 13px;">Interest Rate (% p.a. - वार्षिक ब्याजदर):</label>
+                    <input type="number" step="0.01" class="form-control fw-bold" id="emiRate" placeholder="e.g. 12" oninput="calculateEMI()">
+                </div>
+
+                <!-- TENURE -->
+                <div class="row g-2 mb-2">
+                    <div class="col-8">
+                        <label class="form-label fw-bold mb-1" style="font-size: 13px;">Tenure (अवधि):</label>
+                        <input type="number" class="form-control fw-bold" id="emiTenure" placeholder="e.g. 5" oninput="calculateEMI()">
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label fw-bold mb-1" style="font-size: 13px;">Unit:</label>
+                        <select class="form-select fw-bold" id="emiTenureUnit" onchange="calculateEMI()">
+                            <option value="years" selected>Years</option>
+                            <option value="months">Months</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- EMI BREAKDOWN SUMMARY -->
+            <div class="emi-details-grid">
+                <div class="emi-detail-item">
+                    <label>Total Interest (कुल ब्याज)</label>
+                    <strong id="emiTotalInterest">रु. 0</strong>
+                </div>
+                <div class="emi-detail-item">
+                    <label>Total Payable (कुल बुझाउनुपर्ने)</label>
+                    <strong id="emiTotalPayable">रु. 0</strong>
+                </div>
+            </div>
+
+            <!-- MONTHLY KISTA / AMORTIZATION SCHEDULE TABLE -->
+            <div class="mb-3 d-none" id="scheduleTableSection">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="fw-bold m-0" style="font-size: 14px;"><i class="bi bi-list-check"></i> Kista Schedule (किस्ता विवरण):</h6>
+                    <button class="btn btn-sm btn-outline-primary py-0" onclick="window.print()"><i class="bi bi-printer"></i> Print</button>
+                </div>
+
+                <div class="schedule-container">
+                    <table class="table table-sm table-striped table-hover schedule-table text-center">
+                        <thead>
+                            <tr>
+                                <th>किस्ता (Installment)</th>
+                                <th>EMI (जम्मा)</th>
+                                <th>साँवा (Principal)</th>
+                                <th>ब्याज (Interest)</th>
+                                <th>बाँकी साँवा (Balance)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scheduleTableBody">
+                            <!-- JS AUTO GENERATED ROWS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="button" class="btn btn-outline-danger btn-sm" onclick="resetEMI()">
+                    <i class="bi bi-arrow-counterclockwise"></i> Reset EMI
+                </button>
+            </div>
+        </div>
+
+        <!-- TAB 3: STANDARD CALCULATOR -->
         <div class="tab-pane fade" id="standard-pane" role="tabpanel">
             
             <!-- CALCULATOR TOP TOTAL CARD PANEL -->
@@ -468,12 +709,98 @@
 
     </div>
 
+    <!-- FOOTER COPYRIGHT SECTION -->
+    <div class="footer-copyright">
+        © <span id="currentYear"></span> <strong><a href="https://calculator.arunadhikari.com.np">Arun Adhikari</a></strong>. All Rights Reserved.
+    </div>
+
 </div>
 
 <!-- BOOTSTRAP JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+/* DARK / LIGHT THEME TOGGLE LOGIC */
+function toggleTheme() {
+    const htmlEl = document.documentElement;
+    const currentTheme = htmlEl.getAttribute('data-bs-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    htmlEl.setAttribute('data-bs-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+}
+
+function updateThemeIcon(theme) {
+    const themeIcon = document.getElementById('themeIcon');
+    if (theme === 'dark') {
+        themeIcon.className = 'bi bi-sun-fill';
+    } else {
+        themeIcon.className = 'bi bi-moon-stars-fill';
+    }
+}
+
+// Load Saved Theme Preference
+(function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-bs-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+})();
+
+/* NEPALI DATE CONVERTER ENGINE (B.S. DATE CALCULATION) */
+function getNepaliDate() {
+    const today = new Date();
+    
+    // Reference point: 2024-04-13 = 2081-01-01 (Saturday)
+    const refAD = new Date(2024, 3, 13);
+    const diffTime = today - refAD;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    const bsDaysInMonth = {
+        2081: [31, 31, 32, 32, 31, 30, 30, 30, 29, 30, 29, 31],
+        2082: [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
+        2083: [31, 31, 32, 31, 31, 30, 30, 30, 29, 30, 29, 31]
+    };
+
+    const nepMonthNames = ["वैशाख", "जेठ", "असार", "साउन", "भदौ", "असोज", "कार्तिक", "मंसिर", "पुस", "माघ", "फागुन", "चैत"];
+    const nepDaysNames = ["आइतबार", "सोमबार", "मंगलबार", "बुधबार", "बिहिबार", "शुक्रबार", "शनिबार"];
+    const nepNums = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+
+    function toNepDigits(num) {
+        return num.toString().split('').map(d => nepNums[d] || d).join('');
+    }
+
+    let curYear = 2081;
+    let curMonth = 0;
+    let curDay = 1;
+    let dayCount = diffDays;
+
+    if (dayCount >= 0) {
+        while (dayCount > 0) {
+            let daysInCurMonth = (bsDaysInMonth[curYear] && bsDaysInMonth[curYear][curMonth]) || 30;
+            if (dayCount >= daysInCurMonth) {
+                dayCount -= daysInCurMonth;
+                curMonth++;
+                if (curMonth > 11) {
+                    curMonth = 0;
+                    curYear++;
+                }
+            } else {
+                curDay += dayCount;
+                dayCount = 0;
+            }
+        }
+    }
+
+    const dayOfWeek = today.getDay();
+    const formattedDate = `बि.सं. ${toNepDigits(curYear)} ${nepMonthNames[curMonth]} ${toNepDigits(curDay)}, ${nepDaysNames[dayOfWeek]}`;
+    document.getElementById('nepaliDateText').innerHTML = `<i class="bi bi-calendar3"></i> ${formattedDate}`;
+}
+
+// Update Footer Year
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+getNepaliDate();
+
 /* NUMBER TO WORDS CONVERTER */
 function numberToWords(num) {
     if (isNaN(num) || num === 0) return "(Zero Rupees Only)";
@@ -527,6 +854,111 @@ function calculateDenomination() {
 function resetDenomination() {
     document.getElementById('denomForm').reset();
     calculateDenomination();
+}
+
+/* EMI CALCULATOR & SCHEDULE LOGIC */
+function calculateEMI() {
+    const principal = parseFloat(document.getElementById('emiAmount').value) || 0;
+    const annualRate = parseFloat(document.getElementById('emiRate').value) || 0;
+    let tenure = parseFloat(document.getElementById('emiTenure').value) || 0;
+    const tenureUnit = document.getElementById('emiTenureUnit').value;
+
+    const scheduleSection = document.getElementById('scheduleTableSection');
+    const scheduleBody = document.getElementById('scheduleTableBody');
+
+    if (principal <= 0 || annualRate <= 0 || tenure <= 0) {
+        document.getElementById('emiMonthlyResult').textContent = "रु. 0";
+        document.getElementById('emiTotalInterest').textContent = "रु. 0";
+        document.getElementById('emiTotalPayable').textContent = "रु. 0";
+        scheduleSection.classList.add('d-none');
+        scheduleBody.innerHTML = '';
+        return;
+    }
+
+    let totalMonths = tenureUnit === 'years' ? tenure * 12 : tenure;
+    let tenureYears = totalMonths / 12;
+
+    const method = document.querySelector('input[name="emiMethod"]:checked').value;
+
+    let emi = 0;
+    let totalPayable = 0;
+    let totalInterest = 0;
+
+    scheduleBody.innerHTML = '';
+
+    if (method === 'reducing') {
+        // REDUCING BALANCE METHOD
+        const monthlyRate = annualRate / 12 / 100;
+        emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+        totalPayable = emi * totalMonths;
+        totalInterest = totalPayable - principal;
+
+        let remainingBalance = principal;
+
+        for (let m = 1; m <= totalMonths; m++) {
+            let monthInterest = remainingBalance * monthlyRate;
+            let monthPrincipal = emi - monthInterest;
+            remainingBalance -= monthPrincipal;
+
+            if (remainingBalance < 0 || m === totalMonths) remainingBalance = 0;
+
+            let tr = `<tr>
+                <td class="fw-bold">${m}</td>
+                <td>${Math.round(emi).toLocaleString('en-US')}</td>
+                <td>${Math.round(monthPrincipal).toLocaleString('en-US')}</td>
+                <td>${Math.round(monthInterest).toLocaleString('en-US')}</td>
+                <td>${Math.round(remainingBalance).toLocaleString('en-US')}</td>
+            </tr>`;
+            scheduleBody.innerHTML += tr;
+        }
+
+    } else {
+        // FLAT AMORTIZED METHOD (Flat RateTotal Interest बाँडेर बराबर EMI मा घट्दो ब्याज देखाउने)
+        totalInterest = (principal * annualRate * tenureYears) / 100;
+        totalPayable = principal + totalInterest;
+        emi = totalPayable / totalMonths;
+
+        // Equivalent monthly interest rate to amortize totalInterest
+        const effMonthlyRate = (totalInterest * 2) / (principal * (totalMonths + 1));
+        let remainingBalance = principal;
+
+        for (let m = 1; m <= totalMonths; m++) {
+            let monthInterest = remainingBalance * effMonthlyRate;
+            let monthPrincipal = emi - monthInterest;
+
+            if (m === totalMonths) {
+                monthPrincipal = remainingBalance;
+                monthInterest = emi - monthPrincipal;
+                remainingBalance = 0;
+            } else {
+                remainingBalance -= monthPrincipal;
+                if (remainingBalance < 0) remainingBalance = 0;
+            }
+
+            let tr = `<tr>
+                <td class="fw-bold">${m}</td>
+                <td>${Math.round(emi).toLocaleString('en-US')}</td>
+                <td>${Math.round(monthPrincipal).toLocaleString('en-US')}</td>
+                <td>${Math.round(monthInterest).toLocaleString('en-US')}</td>
+                <td>${Math.round(remainingBalance).toLocaleString('en-US')}</td>
+            </tr>`;
+            scheduleBody.innerHTML += tr;
+        }
+    }
+
+    document.getElementById('emiMonthlyResult').textContent = 'रु. ' + Math.round(emi).toLocaleString('en-US');
+    document.getElementById('emiTotalInterest').textContent = 'रु. ' + Math.round(totalInterest).toLocaleString('en-US');
+    document.getElementById('emiTotalPayable').textContent = 'रु. ' + Math.round(totalPayable).toLocaleString('en-US');
+    
+    scheduleSection.classList.remove('d-none');
+}
+
+function resetEMI() {
+    document.getElementById('emiAmount').value = '';
+    document.getElementById('emiRate').value = '';
+    document.getElementById('emiTenure').value = '';
+    document.getElementById('methodReducing').checked = true;
+    calculateEMI();
 }
 
 /* STANDARD CALCULATOR LOGIC */
