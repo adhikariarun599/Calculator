@@ -20,33 +20,33 @@
             font-family: Arial, Helvetica, sans-serif;
             color: #333;
             min-height: 100vh;
-            padding: 10px 5px;
+            padding: 8px 4px;
         }
 
         .calc-container {
-            max-width: 600px;
-            margin: 10px auto;
+            max-width: 580px;
+            margin: 5px auto;
             background: #ffffff;
             border-radius: 16px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
-            padding: 15px;
+            padding: 14px;
             border: 1px solid #e2e8f0;
         }
 
         /* HEADER & PROFILE */
         .header-profile {
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .profile-img {
-            width: 80px;
-            height: 80px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #1e3a8a;
             box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .header-profile h2 {
@@ -65,7 +65,7 @@
         /* TABS STYLING */
         .nav-tabs {
             border-bottom: 2px solid #e2e8f0;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             justify-content: center;
         }
 
@@ -74,7 +74,7 @@
             color: #64748b;
             font-weight: 600;
             font-size: 15px;
-            padding: 8px 16px;
+            padding: 6px 16px;
             border-radius: 8px 8px 0 0;
         }
 
@@ -89,73 +89,72 @@
             width: 100%;
         }
 
-        /* Strictly Force Single Line Row (No Wrapping) */
         .denom-row {
             display: flex !important;
             flex-direction: row !important;
             flex-wrap: nowrap !important;
             align-items: center !important;
             justify-content: space-between !important;
-            padding: 4px 0 !important;
+            padding: 3px 0 !important;
             border-bottom: 1px solid #f1f5f9;
-            gap: 8px;
+            gap: 6px;
         }
 
         .denom-label {
-            width: 90px !important;
-            min-width: 90px !important;
-            font-weight: 700;
-            font-size: 14px;
-            color: #1e293b;
+            width: 85px !important;
+            min-width: 85px !important;
+            font-weight: 800;
+            font-size: 17px;
+            color: #0f172a;
             white-space: nowrap;
         }
 
         .denom-label span {
-            font-size: 12px;
+            font-size: 14px;
             color: #64748b;
-            font-weight: normal;
+            font-weight: 600;
         }
 
         .denom-input-box {
             flex: 1 !important;
-            max-width: 110px !important;
+            max-width: 115px !important;
         }
 
         .denom-input {
             height: 38px !important;
             padding: 2px 6px !important;
             border-radius: 6px !important;
-            font-size: 15px !important;
+            font-size: 17px !important;
             font-weight: 700 !important;
             text-align: center !important;
+            border: 1px solid #cbd5e1 !important;
         }
 
         .denom-total {
-            width: 110px !important;
-            min-width: 110px !important;
+            width: 115px !important;
+            min-width: 115px !important;
             text-align: right !important;
-            font-weight: 700;
-            font-size: 14px;
+            font-weight: 800;
+            font-size: 16px;
             color: #0f172a;
             white-space: nowrap;
         }
 
-        /* SUMMARY BOX & GRAND TOTAL */
+        /* SUMMARY BOX & GRAND TOTAL CARD PANEL */
         .summary-card {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 12px;
-            padding: 15px;
-            margin-top: 15px;
+            padding: 12px;
+            margin-top: 10px;
         }
 
         .grand-total-box {
             background: #1e3a8a;
             color: #ffffff;
             border-radius: 10px;
-            padding: 14px;
+            padding: 12px;
             text-align: center;
-            margin-top: 10px;
             box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
         }
 
@@ -167,13 +166,13 @@
         }
 
         .grand-total-box h3 {
-            margin: 4px 0 0;
-            font-size: 24px;
+            margin: 2px 0 0;
+            font-size: 28px;
             font-weight: 800;
         }
 
         .total-in-words {
-            margin-top: 6px;
+            margin-top: 4px;
             font-size: 13px;
             font-weight: 600;
             color: #fef08a;
@@ -181,43 +180,88 @@
             word-wrap: break-word;
         }
 
-        /* SIMPLE CALCULATOR UI */
+        /* CALCULATOR TOP BLUE CARD PANEL (CLEAN) */
+        .calc-top-card {
+            background: #1e3a8a;
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 10px 14px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+            margin-bottom: 12px;
+        }
+
+        .calc-top-card span {
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            color: #93c5fd;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .calc-top-card h3 {
+            margin: 2px 0 0;
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        /* STANDARD CALCULATOR UI */
         .std-calc-box {
-            max-width: 320px;
+            width: 100%;
             margin: 0 auto;
             background: #0f172a;
-            padding: 15px;
+            padding: 16px;
             border-radius: 16px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
-        .calc-display {
+        .calc-display-container {
             background: #1e293b;
             color: #ffffff;
-            font-size: 28px;
-            font-weight: 700;
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
             text-align: right;
-            padding: 12px 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            min-height: 60px;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .calc-history {
+            font-size: 14px;
+            color: #94a3b8;
+            min-height: 18px;
             word-break: break-all;
+        }
+
+        .calc-main-total {
+            font-size: 32px;
+            font-weight: 800;
+            color: #ffffff;
+            word-break: break-all;
+            line-height: 1.1;
         }
 
         .calc-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
+            gap: 10px;
         }
 
         .calc-btn {
-            height: 48px;
+            height: 52px;
             border: none;
             border-radius: 10px;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 20px;
+            font-weight: 700;
             background: #334155;
             color: #ffffff;
+            transition: transform 0.1s, background 0.1s;
+        }
+
+        .calc-btn:active {
+            transform: scale(0.96);
         }
 
         .calc-btn-op { background: #3b82f6; }
@@ -228,10 +272,12 @@
         }
 
         @media (max-width: 400px) {
-            .denom-label { width: 75px !important; min-width: 75px !important; font-size: 13px; }
-            .denom-total { width: 95px !important; min-width: 95px !important; font-size: 13px; }
-            .denom-input-box { max-width: 85px !important; }
-            .denom-input { height: 34px !important; font-size: 14px !important; }
+            .denom-label { width: 70px !important; min-width: 70px !important; font-size: 15px; }
+            .denom-total { width: 100px !important; min-width: 100px !important; font-size: 15px; }
+            .denom-input-box { max-width: 90px !important; }
+            .denom-input { height: 35px !important; font-size: 15px !important; }
+            .calc-btn { height: 46px; font-size: 18px; }
+            .calc-main-total { font-size: 28px; }
         }
     </style>
 </head>
@@ -241,7 +287,7 @@
 
     <!-- HEADER / PROFILE -->
     <div class="header-profile">
-        <img src="photo.png" alt="Arun Adhikari" class="profile-img" onerror="this.src='https://via.placeholder.com/80?text=Arun'">
+        <img src="photo.png" alt="Arun Adhikari" class="profile-img" onerror="this.src='https://via.placeholder.com/75?text=Arun'">
         <h2>Arun Adhikari</h2>
         <p>Financial Denomination & Standard Calculator</p>
     </div>
@@ -269,110 +315,105 @@
                     
                     <!-- 1000 -->
                     <div class="denom-row">
-                        <div class="denom-label">रु. १००० <span>x</span></div>
+                        <div class="denom-label">1000 <span>x</span></div>
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="1000" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-1000">रु. ०</div>
+                        <div class="denom-total" id="total-1000">रु. 0</div>
                     </div>
 
                     <!-- 500 -->
                     <div class="denom-row">
-                        <div class="denom-label">रु. ५०० <span>x</span></div>
+                        <div class="denom-label">500 <span>x</span></div>
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="500" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-500">रु. ०</div>
+                        <div class="denom-total" id="total-500">रु. 0</div>
                     </div>
 
                     <!-- 100 -->
                     <div class="denom-row">
-                        <div class="denom-label">रु. १०० <span>x</span></div>
+                        <div class="denom-label">100 <span>x</span></div>
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="100" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-100">रु. ०</div>
+                        <div class="denom-total" id="total-100">रु. 0</div>
                     </div>
 
                     <!-- 50 -->
                     <div class="denom-row">
-                        <div class="denom-label">रु. ५० <span>x</span></div>
+                        <div class="denom-label">50 <span>x</span></div>
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="50" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-50">रु. ०</div>
+                        <div class="denom-total" id="total-50">रु. 0</div>
                     </div>
 
                     <!-- 20 -->
                     <div class="denom-row">
-                        <div class="denom-label">रु. २० <span>x</span></div>
+                        <div class="denom-label">20 <span>x</span></div>
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="20" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-20">रु. ०</div>
+                        <div class="denom-total" id="total-20">रु. 0</div>
                     </div>
 
                     <!-- 10 -->
                     <div class="denom-row">
-                        <div class="denom-label">रु. १० <span>x</span></div>
+                        <div class="denom-label">10 <span>x</span></div>
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="10" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-10">रु. ०</div>
+                        <div class="denom-total" id="total-10">रु. 0</div>
                     </div>
 
                     <!-- 5 -->
                     <div class="denom-row">
-                        <div class="denom-label">रु. ५ <span>x</span></div>
+                        <div class="denom-label">5 <span>x</span></div>
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="5" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-5">रु. ०</div>
+                        <div class="denom-total" id="total-5">रु. 0</div>
                     </div>
 
                     <!-- 2 -->
                     <div class="denom-row">
-                        <div class="denom-label">रु. २ <span>x</span></div>
+                        <div class="denom-label">2 <span>x</span></div>
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="2" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-2">रु. ०</div>
+                        <div class="denom-total" id="total-2">रु. 0</div>
                     </div>
 
                     <!-- 1 -->
                     <div class="denom-row">
-                        <div class="denom-label">रु. १ <span>x</span></div>
+                        <div class="denom-label">1 <span>x</span></div>
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" data-note="1" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total" id="total-1">रु. ०</div>
+                        <div class="denom-total" id="total-1">रु. 0</div>
                     </div>
 
                     <!-- OTHER / EXTRA AMOUNT -->
-                    <div class="denom-row" style="background: #f8fafc; border-top: 1.5px dashed #cbd5e1; margin-top: 4px;">
-                        <div class="denom-label text-primary">अन्य / Other <span>(+)</span></div>
+                    <div class="denom-row" style="background: #f8fafc; border-top: 1.5px dashed #cbd5e1; margin-top: 3px;">
+                        <div class="denom-label text-primary" style="font-size: 15px;">Other <span>(+)</span></div>
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" id="otherAmount" min="0" placeholder="0" oninput="calculateDenomination()">
                         </div>
-                        <div class="denom-total text-primary" id="total-other">रु. ०</div>
+                        <div class="denom-total text-primary" id="total-other">रु. 0</div>
                     </div>
 
                 </div>
 
                 <!-- SUMMARY CARD & GRAND TOTAL -->
                 <div class="summary-card">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="fw-bold text-secondary" style="font-size: 14px;">कुल नोट संख्या (Notes Count):</span>
-                        <span class="fw-bold fs-6 text-dark" id="totalNotesCount">0</span>
-                    </div>
-
                     <div class="grand-total-box">
                         <span>Grand Total Amount</span>
-                        <h3 id="grandTotalText">रु. ०</h3>
+                        <h3 id="grandTotalText">रु. 0</h3>
                         <div class="total-in-words" id="totalInWordsText">(Zero Rupees Only)</div>
                     </div>
 
-                    <div class="text-center mt-2">
+                    <div class="text-center">
                         <button type="button" class="btn btn-outline-danger btn-sm" onclick="resetDenomination()">
                             <i class="bi bi-arrow-counterclockwise"></i> Reset All (खाली गर्नुहोस्)
                         </button>
@@ -383,8 +424,19 @@
 
         <!-- TAB 2: STANDARD CALCULATOR -->
         <div class="tab-pane fade" id="standard-pane" role="tabpanel">
+            
+            <!-- CALCULATOR TOP TOTAL CARD PANEL (CLEAN: TOTAL + NUMBERS ONLY) -->
+            <div class="calc-top-card">
+                <span>TOTAL</span>
+                <h3 id="calcTotalCardText">0</h3>
+            </div>
+
+            <!-- CALCULATOR BODY -->
             <div class="std-calc-box">
-                <div class="calc-display" id="calcDisplay">0</div>
+                <div class="calc-display-container">
+                    <div class="calc-history" id="calcHistory"></div>
+                    <div class="calc-main-total" id="calcDisplay">0</div>
+                </div>
 
                 <div class="calc-grid">
                     <button class="calc-btn calc-btn-action" onclick="clearCalc()">C</button>
@@ -424,7 +476,7 @@
 <script>
 /* NUMBER TO WORDS CONVERTER */
 function numberToWords(num) {
-    if (num === 0) return "(Zero Rupees Only)";
+    if (isNaN(num) || num === 0) return "(Zero Rupees Only)";
 
     const a = ['', 'One ', 'Two ', 'Three ', 'Four ', 'Five ', 'Six ', 'Seven ', 'Eight ', 'Nine ', 'Ten ', 'Eleven ', 'Twelve ', 'Thirteen ', 'Fourteen ', 'Fifteen ', 'Sixteen ', 'Seventeen ', 'Eighteen ', 'Nineteen '];
     const b = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
@@ -442,13 +494,14 @@ function numberToWords(num) {
         return str;
     }
 
-    let result = inWords(Math.floor(num)).trim();
-    return "(" + result + " Rupees Only)";
+    let absNum = Math.abs(num);
+    let result = inWords(Math.floor(absNum)).trim();
+    let prefix = num < 0 ? "Minus " : "";
+    return "(" + prefix + result + " Rupees Only)";
 }
 
 /* DENOMINATION CALCULATOR LOGIC */
 function calculateDenomination() {
-    let totalNotes = 0;
     let grandTotal = 0;
 
     const noteInputs = document.querySelectorAll('.denom-input[data-note]');
@@ -458,18 +511,16 @@ function calculateDenomination() {
         const count = parseFloat(input.value) || 0;
         const subtotal = noteValue * count;
 
-        totalNotes += count;
         grandTotal += subtotal;
 
-        document.getElementById(`total-${noteValue}`).textContent = 'रु. ' + subtotal.toLocaleString('ne-NP');
+        document.getElementById(`total-${noteValue}`).textContent = 'रु. ' + subtotal.toLocaleString('en-US');
     });
 
     const otherVal = parseFloat(document.getElementById('otherAmount').value) || 0;
     grandTotal += otherVal;
-    document.getElementById('total-other').textContent = 'रु. ' + otherVal.toLocaleString('ne-NP');
+    document.getElementById('total-other').textContent = 'रु. ' + otherVal.toLocaleString('en-US');
 
-    document.getElementById('totalNotesCount').textContent = totalNotes.toLocaleString('ne-NP');
-    document.getElementById('grandTotalText').textContent = 'रु. ' + grandTotal.toLocaleString('ne-NP');
+    document.getElementById('grandTotalText').textContent = 'रु. ' + grandTotal.toLocaleString('en-US');
     document.getElementById('totalInWordsText').textContent = numberToWords(grandTotal);
 }
 
@@ -481,9 +532,20 @@ function resetDenomination() {
 /* STANDARD CALCULATOR LOGIC */
 let calcExpr = "";
 const calcDisplay = document.getElementById('calcDisplay');
+const calcHistory = document.getElementById('calcHistory');
+const calcTotalCardText = document.getElementById('calcTotalCardText');
 
 function updateDisplay() {
     calcDisplay.textContent = calcExpr || "0";
+}
+
+function updateCalcTotalPanel(val) {
+    let num = parseFloat(val);
+    if (!isNaN(num)) {
+        calcTotalCardText.textContent = num.toLocaleString('en-US');
+    } else {
+        calcTotalCardText.textContent = '0';
+    }
 }
 
 function appendNum(num) {
@@ -508,7 +570,9 @@ function appendOp(op) {
 
 function clearCalc() {
     calcExpr = "";
+    calcHistory.textContent = "";
     updateDisplay();
+    updateCalcTotalPanel(0);
 }
 
 function deleteCalc() {
@@ -519,12 +583,17 @@ function deleteCalc() {
 function evalCalc() {
     try {
         if (!calcExpr) return;
+        let originalExpr = calcExpr;
         let result = Function('"use strict"; return (' + calcExpr + ')')();
         calcExpr = String(result);
+        calcHistory.textContent = originalExpr + " =";
         updateDisplay();
+        updateCalcTotalPanel(result);
     } catch (e) {
         calcDisplay.textContent = "Error";
+        calcHistory.textContent = "";
         calcExpr = "";
+        updateCalcTotalPanel(0);
     }
 }
 </script>
