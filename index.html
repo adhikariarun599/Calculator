@@ -20,37 +20,37 @@
             font-family: Arial, Helvetica, sans-serif;
             color: #333;
             min-height: 100vh;
-            padding: 20px 10px;
+            padding: 10px 5px;
         }
 
         .calc-container {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 600px;
+            margin: 10px auto;
             background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            padding: 15px;
             border: 1px solid #e2e8f0;
         }
 
         /* HEADER & PROFILE */
         .header-profile {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         .profile-img {
-            width: 110px;
-            height: 110px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #1e3a8a;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin-bottom: 10px;
+            border: 3px solid #1e3a8a;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            margin-bottom: 6px;
         }
 
         .header-profile h2 {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             color: #1e3a8a;
             margin: 0;
@@ -58,14 +58,14 @@
 
         .header-profile p {
             color: #64748b;
-            font-size: 14px;
-            margin-top: 4px;
+            font-size: 13px;
+            margin-top: 2px;
         }
 
         /* TABS STYLING */
         .nav-tabs {
             border-bottom: 2px solid #e2e8f0;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             justify-content: center;
         }
 
@@ -73,10 +73,9 @@
             border: none;
             color: #64748b;
             font-weight: 600;
-            font-size: 16px;
-            padding: 12px 24px;
-            border-radius: 10px 10px 0 0;
-            transition: all 0.2s;
+            font-size: 15px;
+            padding: 8px 16px;
+            border-radius: 8px 8px 0 0;
         }
 
         .nav-tabs .nav-link.active {
@@ -85,93 +84,97 @@
             background: transparent;
         }
 
-        .nav-tabs .nav-link:hover {
-            color: #1d4ed8;
-        }
-
-        /* DENOMINATION TABLE */
+        /* COMPACT DENOMINATION TABLE */
         .denom-table {
             width: 100%;
         }
 
+        /* Strictly Force Single Line Row (No Wrapping) */
         .denom-row {
-            display: flex;
-            align-items: center;
-            padding: 8px 0;
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 4px 0 !important;
             border-bottom: 1px solid #f1f5f9;
+            gap: 8px;
         }
 
         .denom-label {
-            flex: 1.2;
+            width: 90px !important;
+            min-width: 90px !important;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 14px;
             color: #1e293b;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            white-space: nowrap;
         }
 
         .denom-label span {
-            font-size: 13px;
+            font-size: 12px;
             color: #64748b;
             font-weight: normal;
         }
 
         .denom-input-box {
-            flex: 1.5;
+            flex: 1 !important;
+            max-width: 110px !important;
         }
 
         .denom-input {
-            height: 44px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            text-align: center;
+            height: 38px !important;
+            padding: 2px 6px !important;
+            border-radius: 6px !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            text-align: center !important;
         }
 
         .denom-total {
-            flex: 1.5;
-            text-align: right;
+            width: 110px !important;
+            min-width: 110px !important;
+            text-align: right !important;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 14px;
             color: #0f172a;
+            white-space: nowrap;
         }
 
         /* SUMMARY BOX & GRAND TOTAL */
         .summary-card {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            padding: 20px;
-            margin-top: 20px;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
         }
 
         .grand-total-box {
             background: #1e3a8a;
             color: #ffffff;
-            border-radius: 12px;
-            padding: 18px;
+            border-radius: 10px;
+            padding: 14px;
             text-align: center;
-            margin-top: 15px;
-            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
         }
 
         .grand-total-box span {
-            font-size: 13px;
-            letter-spacing: 1px;
+            font-size: 12px;
+            letter-spacing: 0.5px;
             color: #93c5fd;
             text-transform: uppercase;
         }
 
         .grand-total-box h3 {
-            margin: 5px 0 0;
-            font-size: 28px;
+            margin: 4px 0 0;
+            font-size: 24px;
             font-weight: 800;
         }
 
         .total-in-words {
-            margin-top: 10px;
-            font-size: 14px;
+            margin-top: 6px;
+            font-size: 13px;
             font-weight: 600;
             color: #fef08a;
             font-style: italic;
@@ -180,73 +183,55 @@
 
         /* SIMPLE CALCULATOR UI */
         .std-calc-box {
-            max-width: 360px;
+            max-width: 320px;
             margin: 0 auto;
             background: #0f172a;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
         .calc-display {
             background: #1e293b;
             color: #ffffff;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
             text-align: right;
-            padding: 15px 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            min-height: 70px;
-            word-wrap: break-word;
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            min-height: 60px;
             word-break: break-all;
         }
 
         .calc-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            gap: 8px;
         }
 
         .calc-btn {
-            height: 55px;
+            height: 48px;
             border: none;
-            border-radius: 12px;
-            font-size: 20px;
+            border-radius: 10px;
+            font-size: 18px;
             font-weight: 600;
             background: #334155;
             color: #ffffff;
-            transition: all 0.15s;
         }
 
-        .calc-btn:active {
-            transform: scale(0.95);
-        }
-
-        .calc-btn-op {
-            background: #3b82f6;
-            color: #ffffff;
-        }
-
-        .calc-btn-action {
-            background: #ef4444;
-            color: #ffffff;
-        }
-
+        .calc-btn-op { background: #3b82f6; }
+        .calc-btn-action { background: #ef4444; }
         .calc-btn-equal {
             background: #10b981;
-            color: #ffffff;
             grid-column: span 2;
         }
 
-        @media (max-width: 576px) {
-            .denom-row {
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-            .denom-label { flex: 1 0 100%; }
-            .denom-input-box { flex: 1; }
-            .denom-total { flex: 1; }
+        @media (max-width: 400px) {
+            .denom-label { width: 75px !important; min-width: 75px !important; font-size: 13px; }
+            .denom-total { width: 95px !important; min-width: 95px !important; font-size: 13px; }
+            .denom-input-box { max-width: 85px !important; }
+            .denom-input { height: 34px !important; font-size: 14px !important; }
         }
     </style>
 </head>
@@ -256,7 +241,7 @@
 
     <!-- HEADER / PROFILE -->
     <div class="header-profile">
-        <img src="photo.png" alt="Arun Adhikari" class="profile-img">
+        <img src="photo.png" alt="Arun Adhikari" class="profile-img" onerror="this.src='https://via.placeholder.com/80?text=Arun'">
         <h2>Arun Adhikari</h2>
         <p>Financial Denomination & Standard Calculator</p>
     </div>
@@ -277,7 +262,7 @@
 
     <div class="tab-content" id="calcTabsContent">
         
-        <!-- ================= TAB 1: DENOMINATION CALCULATOR ================= -->
+        <!-- TAB 1: DENOMINATION CALCULATOR -->
         <div class="tab-pane fade show active" id="denom-pane" role="tabpanel">
             <form id="denomForm">
                 <div class="denom-table">
@@ -364,7 +349,7 @@
                     </div>
 
                     <!-- OTHER / EXTRA AMOUNT -->
-                    <div class="denom-row" style="background: #f8fafc; border-top: 2px solid #e2e8f0;">
+                    <div class="denom-row" style="background: #f8fafc; border-top: 1.5px dashed #cbd5e1; margin-top: 4px;">
                         <div class="denom-label text-primary">अन्य / Other <span>(+)</span></div>
                         <div class="denom-input-box">
                             <input type="number" class="form-control denom-input" id="otherAmount" min="0" placeholder="0" oninput="calculateDenomination()">
@@ -376,28 +361,27 @@
 
                 <!-- SUMMARY CARD & GRAND TOTAL -->
                 <div class="summary-card">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span class="fw-bold text-secondary">कुल नोट संख्या (Total Notes Count):</span>
-                        <span class="fw-bold fs-5 text-dark" id="totalNotesCount">0</span>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="fw-bold text-secondary" style="font-size: 14px;">कुल नोट संख्या (Notes Count):</span>
+                        <span class="fw-bold fs-6 text-dark" id="totalNotesCount">0</span>
                     </div>
 
                     <div class="grand-total-box">
                         <span>Grand Total Amount</span>
                         <h3 id="grandTotalText">रु. ०</h3>
-                        <!-- TOTAL IN WORDS -->
                         <div class="total-in-words" id="totalInWordsText">(Zero Rupees Only)</div>
                     </div>
 
-                    <div class="text-center mt-3">
+                    <div class="text-center mt-2">
                         <button type="button" class="btn btn-outline-danger btn-sm" onclick="resetDenomination()">
-                            <i class="bi bi-arrow-counterclockwise"></i> Reset All (सबै खाली गर्नुहोस्)
+                            <i class="bi bi-arrow-counterclockwise"></i> Reset All (खाली गर्नुहोस्)
                         </button>
                     </div>
                 </div>
             </form>
         </div>
 
-        <!-- ================= TAB 2: STANDARD CALCULATOR ================= -->
+        <!-- TAB 2: STANDARD CALCULATOR -->
         <div class="tab-pane fade" id="standard-pane" role="tabpanel">
             <div class="std-calc-box">
                 <div class="calc-display" id="calcDisplay">0</div>
