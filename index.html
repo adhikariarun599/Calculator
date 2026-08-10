@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Calculator - Arun Adhikari</title>
+    <title>Financial Calculator & Calendar - Arun Adhikari</title>
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -114,7 +114,9 @@
             border-bottom: 2px solid var(--bs-border-color, #e2e8f0);
             margin-bottom: 12px;
             justify-content: center;
-            gap: 4px;
+            gap: 2px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
         }
 
         .nav-tabs .nav-link {
@@ -122,9 +124,10 @@
             color: var(--bs-body-color);
             opacity: 0.7;
             font-weight: 600;
-            font-size: 14px;
-            padding: 6px 10px;
+            font-size: 13px;
+            padding: 6px 8px;
             border-radius: 8px 8px 0 0;
+            white-space: nowrap;
         }
 
         .nav-tabs .nav-link.active {
@@ -402,6 +405,160 @@
             z-index: 1;
         }
 
+        /* CUSTOM NATIVE CALENDAR STYLING */
+        .custom-calendar-box {
+            background: var(--bs-tertiary-bg, #f8fafc);
+            border: 1px solid var(--bs-border-color, #e2e8f0);
+            border-radius: 12px;
+            padding: 12px;
+        }
+
+        .cal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .cal-header h5 {
+            margin: 0;
+            font-weight: 800;
+            color: #3b82f6;
+            font-size: 18px;
+        }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            text-align: center;
+        }
+
+        .cal-day-header {
+            font-weight: 700;
+            font-size: 11px;
+            padding: 4px 0;
+            border-bottom: 1px solid var(--bs-border-color);
+            line-height: 1.2;
+        }
+
+        .cal-day-header.red-day {
+            color: #ef4444;
+        }
+
+        .cal-cell {
+            min-height: 52px;
+            padding: 4px 2px;
+            border-radius: 8px;
+            background: var(--bs-card-bg);
+            border: 1px solid var(--bs-border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .cal-cell.empty {
+            background: transparent;
+            border: none;
+        }
+
+        .cal-cell .num {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .cal-cell .eng-date {
+            font-size: 10px;
+            color: var(--bs-body-color);
+            opacity: 0.65;
+            font-weight: 600;
+            margin-top: 1px;
+        }
+
+        .cal-cell .event-label {
+            font-size: 8px;
+            line-height: 1;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 800;
+            margin-top: 2px;
+        }
+
+        .cal-cell .normal-event-label {
+            font-size: 8px;
+            line-height: 1;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-top: 2px;
+        }
+
+        /* SUNDAY, SATURDAY & HOLIDAY RED BOX STYLING */
+        .cal-cell.red-box {
+            background-color: #fee2e2 !important;
+            border-color: #fca5a5 !important;
+        }
+
+        .cal-cell.red-box .num,
+        .cal-cell.red-box .event-label {
+            color: #dc2626 !important;
+            font-weight: 800;
+        }
+
+        .cal-cell.red-box .eng-date {
+            color: #991b1b !important;
+            opacity: 0.85;
+        }
+
+        /* DARK MODE RED BOX FIX */
+        [data-bs-theme="dark"] .cal-cell.red-box {
+            background-color: #7f1d1d !important;
+            border-color: #991b1b !important;
+        }
+
+        [data-bs-theme="dark"] .cal-cell.red-box .num,
+        [data-bs-theme="dark"] .cal-cell.red-box .event-label {
+            color: #fca5a5 !important;
+        }
+
+        [data-bs-theme="dark"] .cal-cell.red-box .eng-date {
+            color: #fecaca !important;
+        }
+
+        .cal-cell.today {
+            border: 2.5px solid #3b82f6 !important;
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+        }
+
+        .events-summary-list {
+            margin-top: 14px;
+            background: var(--bs-card-bg);
+            border: 1px solid var(--bs-border-color);
+            border-radius: 10px;
+            padding: 10px 14px;
+        }
+
+        .events-summary-list h6 {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #3b82f6;
+        }
+
+        .events-summary-list ul {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 12px;
+        }
+
         /* FOOTER STYLING */
         .footer-copyright {
             margin-top: 16px;
@@ -419,15 +576,20 @@
             font-weight: 600;
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 480px) {
             .denom-label { width: 70px !important; min-width: 70px !important; font-size: 15px; }
             .denom-total { width: 100px !important; min-width: 100px !important; font-size: 15px; }
             .denom-input-box { max-width: 90px !important; }
             .denom-input { height: 35px !important; font-size: 15px !important; }
             .calc-btn { height: 46px; font-size: 18px; }
             .calc-main-total { font-size: 28px; }
-            .nav-tabs .nav-link { font-size: 12px; padding: 6px 6px; }
+            .nav-tabs .nav-link { font-size: 11px; padding: 6px 4px; }
             .schedule-table { font-size: 10px; }
+            .cal-cell { min-height: 46px; }
+            .cal-cell .num { font-size: 14px; }
+            .cal-cell .eng-date { font-size: 8px; }
+            .cal-cell .event-label, .cal-cell .normal-event-label { font-size: 7px; }
+            .cal-day-header { font-size: 10px; }
         }
     </style>
 </head>
@@ -444,13 +606,13 @@
     <div class="header-profile">
         <img src="photo.png" alt="Arun Adhikari" class="profile-img" onerror="this.src='https://via.placeholder.com/75?text=Arun'">
         <h2>Arun Adhikari</h2>
-        <p>Financial Denomination, Standard & EMI Calculator</p>
+        <p>Financial Calculator & Nepali Calendar</p>
         <div class="nepali-date-badge" id="nepaliDateText">
             <i class="bi bi-calendar3"></i> Loading Date...
         </div>
     </div>
 
-    <!-- TRIPLE TAB NAVIGATION -->
+    <!-- FOUR TAB NAVIGATION -->
     <ul class="nav nav-tabs" id="calcTabs" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="denom-tab" data-bs-toggle="tab" data-bs-target="#denom-pane" type="button" role="tab">
@@ -459,12 +621,17 @@
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="emi-tab" data-bs-toggle="tab" data-bs-target="#emi-pane" type="button" role="tab">
-                <i class="bi bi-bank"></i> EMI Calculator
+                <i class="bi bi-bank"></i> EMI
             </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="standard-tab" data-bs-toggle="tab" data-bs-target="#standard-pane" type="button" role="tab">
                 <i class="bi bi-calculator"></i> Calculator
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="calendar-tab" data-bs-toggle="tab" data-bs-target="#calendar-pane" type="button" role="tab">
+                <i class="bi bi-calendar-event"></i> पात्रो
             </button>
         </li>
     </ul>
@@ -730,6 +897,28 @@
             </div>
         </div>
 
+        <!-- TAB 4: NATIVE NEPALI CALENDAR WITH HOLIDAYS & ENGLISH DATE -->
+        <div class="tab-pane fade" id="calendar-pane" role="tabpanel">
+            <div class="custom-calendar-box">
+                <div class="cal-header">
+                    <button class="btn btn-sm btn-outline-primary" onclick="prevMonth()"><i class="bi bi-chevron-left"></i> अघिल्लो</button>
+                    <h5 id="calMonthYearTitle">नेपाली पात्रो</h5>
+                    <button class="btn btn-sm btn-outline-primary" onclick="nextMonth()">पछिल्लो <i class="bi bi-chevron-right"></i></button>
+                </div>
+
+                <div class="cal-grid" id="calGrid">
+                    <!-- JS Auto-generated Calendar -->
+                </div>
+
+                <div class="events-summary-list">
+                    <h6><i class="bi bi-bell-fill text-danger"></i> यस महिनाका चाडपर्व तथा बिदाहरू (गृह मन्त्रालय सूचना):</h6>
+                    <ul id="eventsSummaryUl">
+                        <li>लोड हुँदैछ...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- FOOTER COPYRIGHT SECTION -->
@@ -763,66 +952,300 @@ function updateThemeIcon(theme) {
     }
 }
 
-// Load Saved Theme Preference
 (function initTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-bs-theme', savedTheme);
     updateThemeIcon(savedTheme);
 })();
 
-/* NEPALI DATE CONVERTER ENGINE (B.S. DATE CALCULATION) */
-function getNepaliDate() {
-    const today = new Date();
-    
-    // Reference point: 2024-04-13 = 2081-01-01 (Saturday)
-    const refAD = new Date(2024, 3, 13);
-    const diffTime = today - refAD;
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+/* NEPALI NUMERALS & MONTH DATA STRUCTURE */
+const nepNums = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+const nepMonthNames = ["वैशाख", "जेठ", "असार", "साउन", "भदौ", "असोज", "कार्तिक", "मंसिर", "पुस", "माघ", "फागुन", "चैत"];
 
-    const bsDaysInMonth = {
-        2081: [31, 31, 32, 32, 31, 30, 30, 30, 29, 30, 29, 31],
-        2082: [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
-        2083: [31, 31, 32, 31, 31, 30, 30, 30, 29, 30, 29, 31]
-    };
+const nepDaysHeaders = [
+    { np: "आइत", en: "Sun" },
+    { np: "सोम", en: "Mon" },
+    { np: "मंगल", en: "Tue" },
+    { np: "बुध", en: "Wed" },
+    { np: "बिहि", en: "Thu" },
+    { np: "शुक्र", en: "Fri" },
+    { np: "शनि", en: "Sat" }
+];
+const nepDaysNamesFull = ["आइतबार", "सोमबार", "मंगलबार", "बुधबार", "बिहिबार", "शुक्रबार", "शनिबार"];
+const engShortMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    const nepMonthNames = ["वैशाख", "जेठ", "असार", "साउन", "भदौ", "असोज", "कार्तिक", "मंसिर", "पुस", "माघ", "फागुन", "चैत"];
-    const nepDaysNames = ["आइतबार", "सोमबार", "मंगलबार", "बुधबार", "बिहिबार", "शुक्रबार", "शनिबार"];
-    const nepNums = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+function toNepDigits(num) {
+    return num.toString().split('').map(d => nepNums[d] || d).join('');
+}
 
-    function toNepDigits(num) {
-        return num.toString().split('').map(d => nepNums[d] || d).join('');
-    }
-
-    let curYear = 2081;
-    let curMonth = 0;
-    let curDay = 1;
-    let dayCount = diffDays;
-
-    if (dayCount >= 0) {
-        while (dayCount > 0) {
-            let daysInCurMonth = (bsDaysInMonth[curYear] && bsDaysInMonth[curYear][curMonth]) || 30;
-            if (dayCount >= daysInCurMonth) {
-                dayCount -= daysInCurMonth;
-                curMonth++;
-                if (curMonth > 11) {
-                    curMonth = 0;
-                    curYear++;
-                }
-            } else {
-                curDay += dayCount;
-                dayCount = 0;
+/* MOHA OFFICIAL GAZETTE HOLIDAY LIST 2083 (BS 2081 - 2083) */
+const bsCalendarData = {
+    2081: {
+        daysInMonth: [31, 31, 32, 32, 31, 30, 30, 30, 29, 30, 29, 31],
+        startDayOfWeek: 0,
+        startDateAD: new Date(2024, 3, 13),
+        events: {
+            0: { 1: { t: "नयाँ वर्ष", h: true }, 18: { t: "मजदुर दिवस", h: true }, 30: { t: "बुद्ध जयन्ती", h: true } },
+            1: { 15: { t: "गणतन्त्र दिवस", h: true } },
+            2: { 15: { t: "धान दिवस", h: false } },
+            3: { 8: { t: "नाग पञ्चमी", h: false }, 14: { t: "जनै पूर्णिमा", h: true }, 15: { t: "गाईजात्रा", h: true } },
+            4: { 3: { t: "कृष्ण जन्माष्टमी", h: true }, 11: { t: "तीज व्रत", h: true }, 20: { t: "विश्वकर्मा पूजा", h: false } },
+            5: { 3: { t: "संविधान दिवस", h: true }, 17: { t: "घटस्थापना", h: true }, 24: { t: "फूलपाती", h: true }, 25: { t: "महाअष्टमी", h: true }, 26: { t: "महानवमी", h: true }, 27: { t: "विजया दशमी", h: true } },
+            6: { 15: { t: "लक्ष्मी पूजा", h: true }, 16: { t: "गोवर्धन पूजा", h: true }, 17: { t: "भाइटीका", h: true }, 22: { t: "छठ पर्व", h: true } },
+            7: { 1: { t: "उधौली पर्व", h: true } },
+            8: { 10: { t: "क्रिसमस डे", h: true }, 15: { t: "तमु ल्होसार", h: true } },
+            9: { 1: { t: "माघे सङ्क्रान्ति", h: true }, 16: { t: "शहीद दिवस", h: false } },
+            10: { 7: { t: "प्रजातन्त्र दिवस", h: true }, 14: { t: "महाशिवरात्रि", h: true }, 25: { t: "महिला दिवस", h: true } },
+            11: { 1: { t: "फागु पूर्णिमा (होली)", h: true } }
+        }
+    },
+    2082: {
+        daysInMonth: [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
+        startDayOfWeek: 1,
+        startDateAD: new Date(2025, 3, 14),
+        events: {
+            0: { 1: { t: "नयाँ वर्ष", h: true }, 18: { t: "मजदुर दिवस", h: true }, 29: { t: "बुद्ध जयन्ती", h: true } },
+            1: { 15: { t: "गणतन्त्र दिवस", h: true } },
+            2: { 15: { t: "धान दिवस", h: false } },
+            3: { 12: { t: "जनै पूर्णिमा", h: true } },
+            4: { 1: { t: "तीज व्रत", h: true }, 20: { t: "विश्वकर्मा पूजा", h: false } },
+            5: { 3: { t: "संविधान दिवस", h: true }, 15: { t: "घटस्थापना", h: true }, 22: { t: "फूलपाती", h: true }, 23: { t: "महाअष्टमी", h: true }, 24: { t: "महानवमी", h: true }, 25: { t: "विजया दशमी", h: true } },
+            6: { 4: { t: "लक्ष्मी पूजा", h: true }, 5: { t: "भाइटीका", h: true }, 10: { t: "छठ पर्व", h: true } },
+            8: { 10: { t: "क्रिसमस", h: true } },
+            9: { 1: { t: "माघे सङ्क्रान्ति", h: true }, 16: { t: "शहीद दिवस", h: false } },
+            10: { 7: { t: "प्रजातन्त्र दिवस", h: true }, 25: { t: "महिला दिवस", h: true } },
+            11: { 1: { t: "फागु पूर्णिमा (होली)", h: true } }
+        }
+    },
+    2083: {
+        daysInMonth: [31, 31, 32, 31, 31, 30, 30, 30, 29, 30, 29, 31],
+        startDayOfWeek: 2, // Baisakh 1 = Tuesday (2083)
+        startDateAD: new Date(2026, 3, 14), // 2026 April 14 = 2083 Baisakh 1
+        events: {
+            0: { 
+                1: { t: "नयाँ वर्ष", h: true }, 
+                18: { t: "मजदुर / बुद्ध जयन्ती", h: true } 
+            },
+            1: { 
+                15: { t: "गणतन्त्र दिवस", h: true } 
+            },
+            2: { 
+                13: { t: "गुरु पूर्णिमा", h: false }, 
+                15: { t: "धान दिवस", h: false } 
+            },
+            3: { 
+                13: { t: "गुरु पूर्णिमा", h: false } 
+            },
+            4: { 
+                12: { t: "रक्षाबन्धन / जनै पूर्णिमा", h: true },
+                13: { t: "गाईजात्रा", h: true },
+                19: { t: "श्रीकृष्ण जन्माष्टमी / गौरा", h: true },
+                29: { t: "हरितालिका (तीज)", h: true } 
+            },
+            5: { 
+                3: { t: "संविधान दिवस", h: true },
+                9: { t: "इन्द्रजात्रा", h: true },
+                18: { t: "जितिया पर्व", h: true },
+                25: { t: "घटस्थापना", h: true },
+                31: { t: "फूलपाती (दशैँ)", h: true }
+            },
+            6: { 
+                1: { t: "महाअष्टमी (दशैँ)", h: true },
+                2: { t: "दशैँ बिदा", h: true },
+                3: { t: "महानवमी (दशैँ)", h: true },
+                4: { t: "विजया दशमी", h: true },
+                5: { t: "दशैँ बिदा", h: true },
+                6: { t: "द्वादशी (दशैँ)", h: true },
+                22: { t: "लक्ष्मी पूजा (तिहार)", h: true },
+                23: { t: "तिहार बिदा", h: true },
+                24: { t: "गोवर्धन पूजा / म्हपूजा", h: true },
+                25: { t: "भाइटीका / फाल्गुनन्द जयन्ती", h: true },
+                26: { t: "तिहार बिदा", h: true },
+                29: { t: "छठ पर्व", h: true }
+            },
+            7: { 
+                17: { t: "अपाङ्गता दिवस", h: true } 
+            },
+            8: { 
+                9: { t: "उधौली / योमरी पुन्ही", h: true },
+                10: { t: "क्रिसमस डे", h: true },
+                15: { t: "तमु ल्होसार", h: true },
+                27: { t: "पृथ्वी जयन्ती / एकता दिवस", h: true }
+            },
+            9: { 
+                1: { t: "माघे सङ्क्रान्ति / माघी", h: true },
+                16: { t: "शहीद दिवस", h: true },
+                24: { t: "सोनाम ल्होसार", h: true },
+                28: { t: "बसन्त पञ्चमी", h: false }
+            },
+            10: { 
+                7: { t: "प्रजातन्त्र दिवस", h: true },
+                22: { t: "महाशिवरात्रि", h: true },
+                24: { t: "महिला दिवस", h: true },
+                25: { t: "ग्याल्पो ल्होसार", h: true }
+            },
+            11: { 
+                7: { t: "फागु पूर्णिमा (पहाड)", h: true },
+                8: { t: "फागु पूर्णिमा (तराई)", h: true },
+                23: { t: "घोडे जात्रा", h: true }
             }
         }
     }
+};
+
+/* CURRENT STATE FOR CALENDAR - EXACT AD TO BS CONVERSION LOGIC */
+let currentCalYear = 2083;
+let currentCalMonth = 3; // Saun (3)
+let todayBS = { year: 2083, month: 3, day: 25 };
+
+function calculateCurrentBSDate() {
+    const today = new Date();
+    
+    // Exact Reference Anchor: 2026-07-17 = 2083 Saun 1 (Friday)
+    const refAD = new Date(2026, 6, 17);
+    
+    const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const refStart = new Date(refAD.getFullYear(), refAD.getMonth(), refAD.getDate());
+    
+    const diffDays = Math.round((todayStart - refStart) / (1000 * 60 * 60 * 24));
+
+    let curYear = 2083;
+    let curMonth = 3; // Saun
+    let curDay = 1 + diffDays;
+
+    // Handle Month/Year rollover if needed
+    const yearData = bsCalendarData[curYear] || bsCalendarData[2083];
+    while (curDay > yearData.daysInMonth[curMonth]) {
+        curDay -= yearData.daysInMonth[curMonth];
+        curMonth++;
+        if (curMonth > 11) {
+            curMonth = 0;
+            curYear++;
+        }
+    }
+
+    todayBS = { year: curYear, month: curMonth, day: curDay };
+    currentCalYear = curYear;
+    currentCalMonth = curMonth;
 
     const dayOfWeek = today.getDay();
-    const formattedDate = `बि.सं. ${toNepDigits(curYear)} ${nepMonthNames[curMonth]} ${toNepDigits(curDay)}, ${nepDaysNames[dayOfWeek]}`;
+    const formattedDate = `बि.सं. ${toNepDigits(curYear)} ${nepMonthNames[curMonth]} ${toNepDigits(curDay)}, ${nepDaysNamesFull[dayOfWeek]}`;
     document.getElementById('nepaliDateText').innerHTML = `<i class="bi bi-calendar3"></i> ${formattedDate}`;
 }
 
-// Update Footer Year
+function renderCalendar() {
+    const calGrid = document.getElementById('calGrid');
+    const titleEl = document.getElementById('calMonthYearTitle');
+    const eventsUl = document.getElementById('eventsSummaryUl');
+
+    if (!calGrid) return;
+
+    calGrid.innerHTML = '';
+    eventsUl.innerHTML = '';
+
+    titleEl.textContent = `बि.सं. ${toNepDigits(currentCalYear)} ${nepMonthNames[currentCalMonth]}`;
+
+    // Render Dual Language Day Headers
+    nepDaysHeaders.forEach((dh, index) => {
+        const headerCell = document.createElement('div');
+        const isRedHeader = (index === 0 || index === 6);
+        headerCell.className = `cal-day-header ${isRedHeader ? 'red-day' : ''}`;
+        headerCell.innerHTML = `<div>${dh.np}</div><div style="font-size: 9px; opacity: 0.7;">${dh.en}</div>`;
+        calGrid.appendChild(headerCell);
+    });
+
+    const yearData = bsCalendarData[currentCalYear] || bsCalendarData[2083];
+    const totalDays = yearData.daysInMonth[currentCalMonth];
+
+    let startDayOfWeek = yearData.startDayOfWeek;
+    let currentADDate = new Date(yearData.startDateAD);
+
+    for (let m = 0; m < currentCalMonth; m++) {
+        let daysInM = yearData.daysInMonth[m];
+        startDayOfWeek = (startDayOfWeek + daysInM) % 7;
+        currentADDate.setDate(currentADDate.getDate() + daysInM);
+    }
+
+    // Render empty slots
+    for (let i = 0; i < startDayOfWeek; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.className = 'cal-cell empty';
+        calGrid.appendChild(emptyCell);
+    }
+
+    const monthEvents = (yearData.events && yearData.events[currentCalMonth]) || {};
+    let eventsFound = false;
+
+    // Render Day Cells
+    for (let day = 1; day <= totalDays; day++) {
+        const dayOfWeekIndex = (startDayOfWeek + day - 1) % 7;
+        const isSunday = (dayOfWeekIndex === 0);
+        const isSaturday = (dayOfWeekIndex === 6);
+        const eventObj = monthEvents[day];
+        const isPublicHoliday = eventObj ? eventObj.h : false;
+
+        let thisDayAD = new Date(currentADDate);
+        thisDayAD.setDate(currentADDate.getDate() + (day - 1));
+        let engDateStr = `${thisDayAD.getDate()} ${engShortMonths[thisDayAD.getMonth()]}`;
+
+        const cell = document.createElement('div');
+        let classes = ['cal-cell'];
+
+        if (isSunday || isSaturday || isPublicHoliday) {
+            classes.push('red-box');
+        }
+
+        if (currentCalYear === todayBS.year && currentCalMonth === todayBS.month && day === todayBS.day) {
+            classes.push('today');
+        }
+
+        cell.className = classes.join(' ');
+
+        let cellContent = `<span class="num">${toNepDigits(day)}</span>`;
+        cellContent += `<span class="eng-date">${engDateStr}</span>`;
+
+        if (eventObj) {
+            let labelClass = eventObj.h ? 'event-label' : 'normal-event-label';
+            cellContent += `<span class="${labelClass}">${eventObj.t}</span>`;
+            eventsFound = true;
+
+            let li = document.createElement('li');
+            let bidaBadge = eventObj.h ? '<span class="badge bg-danger ms-1">सार्वजनिक बिदा</span>' : '<span class="badge bg-secondary ms-1">विशेष पर्व</span>';
+            li.innerHTML = `<strong>${nepMonthNames[currentCalMonth]} ${toNepDigits(day)} (${engDateStr}):</strong> ${eventObj.t} ${bidaBadge}`;
+            eventsUl.appendChild(li);
+        }
+
+        cell.innerHTML = cellContent;
+        calGrid.appendChild(cell);
+    }
+
+    if (!eventsFound) {
+        eventsUl.innerHTML = '<li>यस महिनामा कुनै विशेष सार्वजनिक बिदा सूचना छैन।</li>';
+    }
+}
+
+function prevMonth() {
+    currentCalMonth--;
+    if (currentCalMonth < 0) {
+        currentCalMonth = 11;
+        currentCalYear--;
+    }
+    renderCalendar();
+}
+
+function nextMonth() {
+    currentCalMonth++;
+    if (currentCalMonth > 11) {
+        currentCalMonth = 0;
+        currentCalYear++;
+    }
+    renderCalendar();
+}
+
+// Update Footer Year & Init Calendar
 document.getElementById('currentYear').textContent = new Date().getFullYear();
-getNepaliDate();
+calculateCurrentBSDate();
+renderCalendar();
 
 /* NUMBER TO WORDS CONVERTER */
 function numberToWords(num) {
@@ -853,7 +1276,6 @@ function numberToWords(num) {
 /* DENOMINATION CALCULATOR LOGIC */
 function calculateDenomination() {
     let grandTotal = 0;
-
     const noteInputs = document.querySelectorAll('.denom-input[data-note]');
 
     noteInputs.forEach(input => {
@@ -862,7 +1284,6 @@ function calculateDenomination() {
         const subtotal = noteValue * count;
 
         grandTotal += subtotal;
-
         document.getElementById(`total-${noteValue}`).textContent = subtotal.toLocaleString('en-US');
     });
 
@@ -879,7 +1300,7 @@ function resetDenomination() {
     calculateDenomination();
 }
 
-/* EMI CALCULATOR & SCHEDULE LOGIC */
+/* EMI CALCULATOR LOGIC */
 function calculateEMI() {
     const principal = parseFloat(document.getElementById('emiAmount').value) || 0;
     const annualRate = parseFloat(document.getElementById('emiRate').value) || 0;
@@ -910,7 +1331,6 @@ function calculateEMI() {
     scheduleBody.innerHTML = '';
 
     if (method === 'reducing') {
-        // REDUCING BALANCE METHOD
         const monthlyRate = annualRate / 12 / 100;
         emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
         totalPayable = emi * totalMonths;
@@ -936,7 +1356,6 @@ function calculateEMI() {
         }
 
     } else {
-        // FLAT AMORTIZED METHOD
         totalInterest = (principal * annualRate * tenureYears) / 100;
         totalPayable = principal + totalInterest;
         emi = totalPayable / totalMonths;
