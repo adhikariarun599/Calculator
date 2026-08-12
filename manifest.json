@@ -3,13 +3,14 @@
   "short_name": "FinCalc",
   "description": "Financial Calculator, Denomination, EMI & Nepali Calendar",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0b0f19",
   "theme_color": "#1e3a8a",
   "icons": [
     {
-      "src": "photo.png",
-      "sizes": "192x192 512x512",
+      "src": "https://cdn-icons-png.flaticon.com/512/2344/2344132.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
