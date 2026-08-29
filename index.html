@@ -9,8 +9,8 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1e3a8a">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-web-app-capable" content="yes">
-    <meta name="apple-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="./photo.png">
 
     <!-- Bootstrap 5 -->
@@ -46,7 +46,7 @@
             background: var(--bs-card-bg, #ffffff);
             border-radius: 16px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            padding: 16px;
+            padding: 14px;
             border: 1px solid var(--bs-border-color, #e2e8f0);
             position: relative;
         }
@@ -208,7 +208,7 @@
             word-wrap: break-word;
         }
 
-        /* --- SMOOTH & DYNAMIC STANDARD CALCULATOR --- */
+        /* --- STANDARD CALCULATOR STYLES --- */
         .std-calc-box {
             width: 100%;
             max-width: 380px;
@@ -274,7 +274,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            transition: transform 0.08s ease, filter 0.08s ease, background 0.15s ease;
+            transition: transform 0.08s ease, filter 0.08s ease;
             outline: none;
             user-select: none;
             touch-action: manipulation;
@@ -286,144 +286,125 @@
             filter: brightness(0.90);
         }
 
-        .calc-btn-top {
-            background: #e2e8f0;
-            color: #1e293b;
-            font-size: 20px;
-            font-weight: 600;
-        }
+        .calc-btn-top { background: #e2e8f0; color: #1e293b; font-size: 20px; font-weight: 600; }
+        .calc-btn-op { background: #e2e8f0; color: #1e293b; font-size: 26px; }
+        .calc-btn-equal { background: #f97316 !important; color: #ffffff !important; font-size: 30px; box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3); }
 
-        .calc-btn-op {
-            background: #e2e8f0;
-            color: #1e293b;
-            font-size: 26px;
-        }
-
-        .calc-btn-equal {
-            background: #f97316 !important;
-            color: #ffffff !important;
-            font-size: 30px;
-            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
-        }
-
-        .calc-btn-equal:active {
-            filter: brightness(1.15) !important;
-        }
-
-        /* DARK THEME CALCULATOR OVERRIDES */
-        [data-bs-theme="dark"] .std-calc-box {
-            background: #1c1c1e;
-            border-color: #2c2c2e;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-
+        [data-bs-theme="dark"] .std-calc-box { background: #1c1c1e; border-color: #2c2c2e; }
         [data-bs-theme="dark"] .calc-history { color: #8e8e93; }
         [data-bs-theme="dark"] .calc-main-total { color: #ffffff; }
+        [data-bs-theme="dark"] .calc-btn { background: #2c2c2e; color: #f2f2f7; }
+        [data-bs-theme="dark"] .calc-btn:active { filter: brightness(1.35); }
+        [data-bs-theme="dark"] .calc-btn-top, [data-bs-theme="dark"] .calc-btn-op { background: #3a3a3c; color: #ffffff; }
 
-        [data-bs-theme="dark"] .calc-btn {
-            background: #2c2c2e;
-            color: #f2f2f7;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.25), inset 0 1px 1px rgba(255,255,255,0.12);
-        }
-
-        [data-bs-theme="dark"] .calc-btn:active {
-            filter: brightness(1.35);
-        }
-
-        [data-bs-theme="dark"] .calc-btn-top,
-        [data-bs-theme="dark"] .calc-btn-op {
-            background: #3a3a3c;
-            color: #ffffff;
-        }
-
-        /* --- EMI & CALENDAR STYLES --- */
-        .emi-result-card {
-            background: #1e3a8a;
-            color: #ffffff;
-            border-radius: 12px;
-            padding: 14px;
-            text-align: center;
-            margin-bottom: 16px;
-        }
-
+        /* --- EMI STYLES --- */
+        .emi-result-card { background: #1e3a8a; color: #ffffff; border-radius: 12px; padding: 14px; text-align: center; margin-bottom: 16px; }
         .emi-result-card span { font-size: 12px; color: #93c5fd; text-transform: uppercase; font-weight: 700; }
         .emi-result-card h2 { font-size: 30px; font-weight: 800; margin: 4px 0 0; color: #ffffff; }
-
         .emi-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-        .emi-detail-item {
-            background: var(--bs-tertiary-bg, #f8fafc);
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid var(--bs-border-color, #e2e8f0);
-            text-align: center;
-        }
-
+        .emi-detail-item { background: var(--bs-tertiary-bg, #f8fafc); padding: 10px; border-radius: 8px; border: 1px solid var(--bs-border-color, #e2e8f0); text-align: center; }
         .emi-detail-item label { font-size: 11px; color: var(--bs-body-color); opacity: 0.8; display: block; margin-bottom: 2px; font-weight: 600; }
         .emi-detail-item strong { font-size: 16px; font-weight: 700; color: var(--bs-body-color); }
-
         .schedule-container { max-height: 320px; overflow-y: auto; border: 1px solid var(--bs-border-color, #e2e8f0); border-radius: 8px; }
         .schedule-table { font-size: 12px; margin-bottom: 0; color: var(--bs-body-color); }
         .schedule-table th { position: sticky; top: 0; background-color: var(--bs-tertiary-bg, #f8fafc); color: var(--bs-body-color); z-index: 1; }
 
-        .custom-calendar-box { background: var(--bs-tertiary-bg, #f8fafc); border: 1px solid var(--bs-border-color, #e2e8f0); border-radius: 12px; padding: 12px; }
-        .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .cal-header h5 { margin: 0; font-weight: 800; color: #3b82f6; font-size: 18px; }
+        /* --- CLEAN & RESPONSIVE CALENDAR STYLES --- */
+        .custom-calendar-box {
+            background: var(--bs-tertiary-bg, #f8fafc);
+            border: 1px solid var(--bs-border-color, #e2e8f0);
+            border-radius: 12px;
+            padding: 8px;
+            overflow: hidden;
+        }
 
-        .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; }
-        .cal-day-header { font-weight: 700; font-size: 11px; padding: 4px 0; border-bottom: 1px solid var(--bs-border-color); line-height: 1.2; }
+        .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .cal-header h5 { margin: 0; font-weight: 800; color: #3b82f6; font-size: 16px; }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+            gap: 3px;
+            width: 100%;
+        }
+
+        .cal-day-header {
+            font-weight: 700;
+            font-size: 11px;
+            padding: 3px 0;
+            border-bottom: 1px solid var(--bs-border-color);
+            line-height: 1.1;
+            text-align: center;
+        }
         .cal-day-header.red-day { color: #ef4444; }
 
         .cal-cell {
-            min-height: 52px;
-            padding: 4px 2px;
-            border-radius: 8px;
+            height: 48px;
+            padding: 2px 1px;
+            border-radius: 6px;
             background: var(--bs-card-bg);
             border: 1px solid var(--bs-border-color);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            position: relative;
+            overflow: hidden;
         }
 
         .cal-cell.empty { background: transparent; border: none; }
-        .cal-cell .num { font-size: 16px; font-weight: 700; line-height: 1; }
-        .cal-cell .eng-date { font-size: 10px; color: var(--bs-body-color); opacity: 0.65; font-weight: 600; margin-top: 1px; }
-
-        .cal-cell .event-label { font-size: 8px; line-height: 1; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 800; margin-top: 2px; }
-        .cal-cell .normal-event-label { font-size: 8px; line-height: 1; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; color: #3b82f6; margin-top: 2px; }
+        .cal-cell .num { font-size: 14px; font-weight: 700; line-height: 1; margin-top: 2px; }
+        .cal-cell .eng-date { font-size: 8px; color: var(--bs-body-color); opacity: 0.65; font-weight: 600; line-height: 1; }
+        
+        .cal-cell .event-label {
+            font-size: 7.5px;
+            line-height: 1;
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 700;
+            padding: 0 1px;
+            margin-bottom: 2px;
+        }
 
         .cal-cell.red-box { background-color: #fee2e2 !important; border-color: #fca5a5 !important; }
-        .cal-cell.red-box .num, .cal-cell.red-box .event-label { color: #dc2626 !important; font-weight: 800; }
+        .cal-cell.red-box .num, .cal-cell.red-box .event-label { color: #dc2626 !important; }
         .cal-cell.red-box .eng-date { color: #991b1b !important; opacity: 0.85; }
 
         [data-bs-theme="dark"] .cal-cell.red-box { background-color: #7f1d1d !important; border-color: #991b1b !important; }
         [data-bs-theme="dark"] .cal-cell.red-box .num, [data-bs-theme="dark"] .cal-cell.red-box .event-label { color: #fca5a5 !important; }
         [data-bs-theme="dark"] .cal-cell.red-box .eng-date { color: #fecaca !important; }
 
-        .cal-cell.today { border: 2.5px solid #3b82f6 !important; box-shadow: 0 0 8px rgba(59, 130, 246, 0.5); }
+        .cal-cell.today { border: 2px solid #3b82f6 !important; box-shadow: 0 0 6px rgba(59, 130, 246, 0.4); }
 
-        .events-summary-list { margin-top: 14px; background: var(--bs-card-bg); border: 1px solid var(--bs-border-color); border-radius: 10px; padding: 10px 14px; }
-        .events-summary-list h6 { font-size: 13px; font-weight: 700; margin-bottom: 6px; color: #3b82f6; }
-        .events-summary-list ul { margin: 0; padding-left: 18px; font-size: 12px; }
+        .events-summary-list {
+            margin-top: 10px;
+            background: var(--bs-card-bg);
+            border: 1px solid var(--bs-border-color);
+            border-radius: 8px;
+            padding: 8px 12px;
+        }
+        .events-summary-list h6 { font-size: 12px; font-weight: 700; margin-bottom: 4px; color: #3b82f6; }
+        .events-summary-list ul { margin: 0; padding-left: 16px; font-size: 11px; }
 
-        .footer-copyright { margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--bs-border-color, #e2e8f0); text-align: center; font-size: 12px; color: var(--bs-body-color); opacity: 0.8; }
+        .footer-copyright { margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--bs-border-color, #e2e8f0); text-align: center; font-size: 11px; color: var(--bs-body-color); opacity: 0.8; }
         .footer-copyright a { color: #3b82f6; text-decoration: none; font-weight: 600; }
 
         @media (max-width: 480px) {
+            .calc-container { padding: 10px 8px; }
             .denom-label { width: 70px !important; min-width: 70px !important; font-size: 15px; }
-            .denom-total { width: 100px !important; min-width: 100px !important; font-size: 15px; }
-            .denom-input-box { max-width: 90px !important; }
+            .denom-total { width: 95px !important; min-width: 95px !important; font-size: 15px; }
+            .denom-input-box { max-width: 85px !important; }
             .denom-input { height: 35px !important; font-size: 15px !important; }
-            .calc-btn { width: 58px; height: 58px; font-size: 22px; }
+            .calc-btn { width: 56px; height: 56px; font-size: 21px; }
             .calc-grid { gap: 8px; }
             .nav-tabs .nav-link { font-size: 12px; padding: 8px 2px; }
-            .schedule-table { font-size: 10px; }
-            .cal-cell { min-height: 46px; }
-            .cal-cell .num { font-size: 14px; }
-            .cal-cell .eng-date { font-size: 8px; }
-            .cal-cell .event-label, .cal-cell .normal-event-label { font-size: 7px; }
-            .cal-day-header { font-size: 10px; }
+            .cal-cell { height: 44px; }
+            .cal-cell .num { font-size: 12.5px; }
+            .cal-cell .eng-date { font-size: 7.5px; }
+            .cal-cell .event-label { font-size: 6.5px; }
+            .cal-day-header { font-size: 9.5px; }
         }
     </style>
 </head>
@@ -482,7 +463,7 @@
                     <div class="denom-row"><div class="denom-label">50 <span>x</span></div><div class="denom-input-box"><input type="number" class="form-control denom-input" data-note="50" min="0" placeholder="0" oninput="calculateDenomination()"></div><div class="denom-total" id="total-50">0</div></div>
                     <div class="denom-row"><div class="denom-label">20 <span>x</span></div><div class="denom-input-box"><input type="number" class="form-control denom-input" data-note="20" min="0" placeholder="0" oninput="calculateDenomination()"></div><div class="denom-total" id="total-20">0</div></div>
                     <div class="denom-row"><div class="denom-label">10 <span>x</span></div><div class="denom-input-box"><input type="number" class="form-control denom-input" data-note="10" min="0" placeholder="0" oninput="calculateDenomination()"></div><div class="denom-total" id="total-10">0</div></div>
-                    <div class="denom-row"><div class="denom-label">5 <span>x</span></div><div class="denom-input-box"><input type="number" class="form-control denom-input" data-note="5" min="0" placeholder="0" oninput="calculateDenomination()"></div><div class="denom-total" id="total-5">0</div></div>
+                    <div class="denom-row"><div class="denom-label">5 <span>x</span></div><div class="denom-input-box"><input type="number" class="form-control denom-input" data-note="5" min="0" placeholder="0" oninput="calculateDenomination()"></div><div class="denom-total" id="total-50">0</div></div>
                     <div class="denom-row"><div class="denom-label">2 <span>x</span></div><div class="denom-input-box"><input type="number" class="form-control denom-input" data-note="2" min="0" placeholder="0" oninput="calculateDenomination()"></div><div class="denom-total" id="total-2">0</div></div>
                     <div class="denom-row"><div class="denom-label">1 <span>x</span></div><div class="denom-input-box"><input type="number" class="form-control denom-input" data-note="1" min="0" placeholder="0" oninput="calculateDenomination()"></div><div class="denom-total" id="total-1">0</div></div>
                     <div class="denom-row" style="background: var(--bs-tertiary-bg, #f8fafc); border-top: 1.5px dashed var(--bs-border-color, #cbd5e1); margin-top: 3px;">
@@ -602,31 +583,26 @@
                     <div class="calc-main-total" id="calcDisplay">0</div>
                 </div>
                 <div class="calc-grid">
-                    <!-- Row 1 -->
                     <button class="calc-btn calc-btn-top" onclick="clearCalc()">AC</button>
                     <button class="calc-btn calc-btn-top" onclick="appendPercent()">%</button>
                     <button class="calc-btn calc-btn-top" onclick="deleteCalc()"><i class="bi bi-backspace"></i></button>
                     <button class="calc-btn calc-btn-op" onclick="appendOp('/')">÷</button>
 
-                    <!-- Row 2 -->
                     <button class="calc-btn" onclick="appendNum('7')">7</button>
                     <button class="calc-btn" onclick="appendNum('8')">8</button>
                     <button class="calc-btn" onclick="appendNum('9')">9</button>
                     <button class="calc-btn calc-btn-op" onclick="appendOp('*')">×</button>
 
-                    <!-- Row 3 -->
                     <button class="calc-btn" onclick="appendNum('4')">4</button>
                     <button class="calc-btn" onclick="appendNum('5')">5</button>
                     <button class="calc-btn" onclick="appendNum('6')">6</button>
                     <button class="calc-btn calc-btn-op" onclick="appendOp('-')">−</button>
 
-                    <!-- Row 4 -->
                     <button class="calc-btn" onclick="appendNum('1')">1</button>
                     <button class="calc-btn" onclick="appendNum('2')">2</button>
                     <button class="calc-btn" onclick="appendNum('3')">3</button>
                     <button class="calc-btn calc-btn-op" onclick="appendOp('+')">+</button>
 
-                    <!-- Row 5 -->
                     <button class="calc-btn" onclick="appendNum('00')">00</button>
                     <button class="calc-btn" onclick="appendNum('0')">0</button>
                     <button class="calc-btn" onclick="appendNum('.')">.</button>
@@ -766,14 +742,14 @@ const bsCalendarData = {
             1: { 15: { t: "गणतन्त्र दिवस", h: true } },
             2: { 13: { t: "गुरु पूर्णिमा", h: false }, 15: { t: "धान दिवस", h: false } },
             3: { 13: { t: "गुरु पूर्णिमा", h: false } },
-            4: { 12: { t: "रक्षाबन्धन / जनै पूर्णिमा", h: true }, 13: { t: "गाईजात्रा", h: true }, 19: { t: "श्रीकृष्ण जन्माष्टमी / गौरा", h: true }, 29: { t: "हरितालिका (तीज)", h: true } },
-            5: { 3: { t: "संविधान दिवस", h: true }, 9: { t: "इन्द्रजात्रा", h: true }, 18: { t: "जितिया पर्व", h: true }, 25: { t: "घटस्थापना", h: true }, 31: { t: "फूलपाती (दशैँ)", h: true } },
-            6: { 1: { t: "महाअष्टमी (दशैँ)", h: true }, 2: { t: "दशैँ बिदा", h: true }, 3: { t: "महानवमी (दशैँ)", h: true }, 4: { t: "विजया दशमी", h: true }, 5: { t: "दशैँ बिदा", h: true }, 6: { t: "द्वादशी (दशैँ)", h: true }, 22: { t: "लक्ष्मी पूजा (तिहार)", h: true }, 23: { t: "तिहार बिदा", h: true }, 24: { t: "गोवर्धन पूजा / म्हपूजा", h: true }, 25: { t: "भाइटीका / फाल्गुनन्द जयन्ती", h: true }, 26: { t: "तिहार बिदा", h: true }, 29: { t: "छठ पर्व", h: true } },
+            4: { 12: { t: "जनै पूर्णिमा", h: true }, 13: { t: "गाईजात्रा", h: true }, 19: { t: "श्रीकृष्ण जन्माष्टमी", h: true }, 29: { t: "तीज", h: true } },
+            5: { 3: { t: "संविधान दिवस", h: true }, 9: { t: "इन्द्रजात्रा", h: true }, 18: { t: "जितिया पर्व", h: true }, 25: { t: "घटस्थापना", h: true }, 31: { t: "फूलपाती", h: true } },
+            6: { 1: { t: "महाअष्टमी", h: true }, 2: { t: "दशैँ बिदा", h: true }, 3: { t: "महानवमी", h: true }, 4: { t: "दशैँ", h: true }, 5: { t: "दशैँ बिदा", h: true }, 6: { t: "द्वादशी", h: true }, 22: { t: "लक्ष्मी पूजा", h: true }, 23: { t: "तिहार बिदा", h: true }, 24: { t: "गोवर्धन पूजा", h: true }, 25: { t: "भाइटीका", h: true }, 26: { t: "तिहार बिदा", h: true }, 29: { t: "छठ पर्व", h: true } },
             7: { 17: { t: "अपाङ्गता दिवस", h: true } },
-            8: { 9: { t: "उधौली / योमरी पुन्ही", h: true }, 10: { t: "क्रिसमस डे", h: true }, 15: { t: "तमु ल्होसार", h: true }, 27: { t: "पृथ्वी जयन्ती / एकता दिवस", h: true } },
-            9: { 1: { t: "माघे सङ्क्रान्ति / माघी", h: true }, 16: { t: "शहीद दिवस", h: true }, 24: { t: "सोनाम ल्होसार", h: true }, 28: { t: "बसन्त पञ्चमी", h: false } },
+            8: { 9: { t: "उधौली", h: true }, 10: { t: "क्रिसमस डे", h: true }, 15: { t: "तमु ल्होसार", h: true }, 27: { t: "पृथ्वी जयन्ती", h: true } },
+            9: { 1: { t: "माघे सङ्क्रान्ति", h: true }, 16: { t: "शहीद दिवस", h: true }, 24: { t: "सोनाम ल्होसार", h: true }, 28: { t: "बसन्त पञ्चमी", h: false } },
             10: { 7: { t: "प्रजातन्त्र दिवस", h: true }, 22: { t: "महाशिवरात्रि", h: true }, 24: { t: "महिला दिवस", h: true }, 25: { t: "ग्याल्पो ल्होसार", h: true } },
-            11: { 7: { t: "फागु पूर्णिमा (पहाड)", h: true }, 8: { t: "फागु पूर्णिमा (तराई)", h: true }, 23: { t: "घोडे जात्रा", h: true } }
+            11: { 7: { t: "होली (पहाड)", h: true }, 8: { t: "होली (तराई)", h: true }, 23: { t: "घोडे जात्रा", h: true } }
         }
     }
 };
@@ -830,7 +806,7 @@ function renderCalendar() {
         const headerCell = document.createElement('div');
         const isRedHeader = (index === 0 || index === 6);
         headerCell.className = `cal-day-header ${isRedHeader ? 'red-day' : ''}`;
-        headerCell.innerHTML = `<div>${dh.np}</div><div style="font-size: 9px; opacity: 0.7;">${dh.en}</div>`;
+        headerCell.innerHTML = `<div>${dh.np}</div><div style="font-size: 8px; opacity: 0.7;">${dh.en}</div>`;
         calGrid.appendChild(headerCell);
     });
 
@@ -883,8 +859,7 @@ function renderCalendar() {
         cellContent += `<span class="eng-date">${engDateStr}</span>`;
 
         if (eventObj) {
-            let labelClass = eventObj.h ? 'event-label' : 'normal-event-label';
-            cellContent += `<span class="${labelClass}">${eventObj.t}</span>`;
+            cellContent += `<span class="event-label">${eventObj.t}</span>`;
             eventsFound = true;
 
             let li = document.createElement('li');
