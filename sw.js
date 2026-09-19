@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fincalc-v6';
+const CACHE_NAME = 'fincalc-v7';
 
 self.addEventListener('install', (e) => {
   self.skipWaiting();
