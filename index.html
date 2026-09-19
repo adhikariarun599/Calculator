@@ -1026,7 +1026,7 @@ const bsCalendarData = {
         }
     },
     2083: {
-        daysInMonth: [31, 31, 32, 31, 31, 30, 30, 30, 29, 30, 29, 31],
+        daysInMonth: [31, 31, 32, 31, 31, 30, 31, 29, 30, 29, 30, 30],
         startDayOfWeek: 2,
         startDateAD: new Date(2026, 3, 14),
         events: {
@@ -1036,7 +1036,7 @@ const bsCalendarData = {
             3: { 13: { t: "गुरु पूर्णिमा", h: false } },
             4: { 12: { t: "जनै पूर्णिमा", h: true }, 13: { t: "गाईजात्रा", h: true }, 19: { t: "श्रीकृष्ण जन्माष्टमी", h: true }, 29: { t: "तीज", h: true } },
             5: { 3: { t: "संविधान दिवस", h: true }, 9: { t: "इन्द्रजात्रा", h: true }, 18: { t: "जितिया पर्व", h: true }, 25: { t: "घटस्थापना", h: true }, 31: { t: "फूलपाती", h: true } },
-            6: { 1: { t: "महाअष्टमी", h: true }, 2: { t: "दशैँ बिदा", h: true }, 3: { t: "महानवमी", h: true }, 4: { t: "दशैँ", h: true }, 5: { t: "दशैँ बिदा", h: true }, 6: { t: "द्वादशी", h: true }, 22: { t: "लक्ष्मी पूजा", h: true }, 23: { t: "तिहार बिदा", h: true }, 24: { t: "गोवर्धन पूजा", h: true }, 25: { t: "भाइटीका", h: true }, 26: { t: "तिहार बिदा", h: true }, 29: { t: "छठ पर्व", h: true } },
+            6: { 1: { t: "महाअष्टमी", h: true }, 2: { t: "दशैँ बिदा", h: true }, 3: { t: "महानवमी", h: true }, 4: { t: "दशैँ", h: true }, 5: { t: "दशैँ बिदा", h: true }, 6: { t: "द्वादशी", h: true }, 23: { t: "लक्ष्मी पूजा", h: true }, 24: { t: "तिहार बिदा", h: true }, 25: { t: "गोवर्धन पूजा", h: true }, 26: { t: "भाइटीका", h: true }, 27: { t: "तिहार बिदा", h: true }, 30: { t: "छठ पर्व", h: true } },
             7: { 17: { t: "अपाङ्गता दिवस", h: true } },
             8: { 9: { t: "उधौली", h: true }, 10: { t: "क्रिसमस डे", h: true }, 15: { t: "तमु ल्होसार", h: true }, 27: { t: "पृथ्वी जयन्ती", h: true } },
             9: { 1: { t: "माघे सङ्क्रान्ति", h: true }, 16: { t: "शहीद दिवस", h: true }, 24: { t: "सोनाम ल्होसार", h: true }, 28: { t: "बसन्त पञ्चमी", h: false } },
@@ -1340,7 +1340,7 @@ function resetEMI() {
     calculateEMI();
 }
 
-/* --- OPTIMIZED & DYNAMIC STANDARD CALCULATOR JS --- */
+/* --- STANDARD CALCULATOR JS --- */
 let calcExpr = "";
 let isEvaluated = false;
 const calcDisplay = document.getElementById('calcDisplay');
@@ -1442,7 +1442,7 @@ function evalCalc() {
         calcDisplay.textContent = "Error";
         calcHistory.textContent = "";
         calcExpr = "";
-        isEvaluated = true;
+        isEvaluType = true;
     }
 }
 
@@ -1615,7 +1615,6 @@ function escapeHTML(text) {
     return div.innerHTML;
 }
 
-// Initial Tasks render
 renderTasks();
 </script>
 
